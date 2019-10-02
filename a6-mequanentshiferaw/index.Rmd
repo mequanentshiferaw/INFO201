@@ -1,0 +1,40 @@
+---
+title: "a6-api-report"
+author: "Mequanent Shiferaw"
+date: "2/20/2019"
+output: html_document
+---
+```{r setup, include=FALSE, warning=FALSE}
+library("knitr")
+source("civic-info.R")
+source("propublica.R")
+```
+This is a report about the political representatives based on the address entered. This report draws upon data from the ProPublica API and the Google Civic Data API.
+As an overview, here is a summary of who represents the address given. 
+```{r , echo=FALSE}
+kable(political_representative())
+```
+
+##House of Representatives
+
+the bar graph shows all of the congressional representatives (in the House of Representatives,not the Senate) for the state in which the address was given and are breakdown by gender
+
+```{r , echo=FALSE}
+testing_bar_graph$gender
+```
+
+
+
+##Representatives By Party
+ 
+```{r , echo=FALSE}
+testing_bar_graph$party
+```
+
+
+
+```{r , echo=FALSE}
+
+```
+# `r first_name` `r Last_name`
+Let’s learn a bit more about one representative, Ralph Abraham. The representative is `r age` years old, and you can find them on twitter at `r twitter_account`. Interestingly, of the last 20 congressional votes, the representative was in accordance with the majority `r perecentage_data`% of the time.

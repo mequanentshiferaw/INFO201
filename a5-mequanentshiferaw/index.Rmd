@@ -1,0 +1,52 @@
+---
+title: "a5-data-report"
+author: "Mequanent Shiferaw"
+date: "2/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+library("knitr")
+source("analysis.R")
+library(rsconnect)
+```
+
+## Summary
+ 
+ 
+Gun shooting has been one of the issues that the United States is facing When looking at the data of shootings in 2018, about `r summary_killed$num_shooting_occured` shootings occured, `r summary_killed$total_killed` people were killed and `r summary_killed$total_injured` people were injured becuase of the free access to guns in the United States. These states were the most impacted  
+
+ ```{r summary_most_imparcted, echo=FALSE}
+kable(summary_most_impacted)
+```
+
+## Summary Table
+ 
+The data below shows data about the shooting statistics about 37 differnet U.S. states in 2018. It lists the name of the state, the total number of people killed from the shootings and the the total number of people injured in the shootings. The list is in decending order the amount of deaths that occured from each state.
+```{r sum_by_state, echo=FALSE}
+kable(sum_by_state)
+```
+
+
+
+## Interactive Map
+ 
+ ```{r calculating_killed_by_state, echo=FALSE}
+cali <- filter(sum_by_state, state == "California")
+```
+
+In the United States looking at gun shoots in 2018 within each states, shows that the more the states darker red, mean the alot of people were killed. For example, `r cali$total_killed ` people were killed in California. if the any state is white background,that state had no  report of gun shooting in 2018. 
+
+```{r ploting_num_shooting_by_states, echo=FALSE}
+ploting_num_shooting_by_states
+```
+
+## Plots
+this is a graph with the mount of people killed in each states in 2018.the yaxis represent the total mount of people that were killed, and the Xaxis resperesent the 37 states in the U.S. 
+
+```{r dash_plots, echo=FALSE}
+dash_plot
+```
+
+
+
